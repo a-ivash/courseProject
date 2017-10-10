@@ -15,6 +15,30 @@
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
 
+        <div class="alert alert-success">
+            ${successActivatedMessage}
+        </div>
+
+        <div class="alert alert-success">
+            ${successBlockedMessage}
+        </div>
+
+        <div class="alert alert-danger">
+            ${errorGettingSubscriberMessage}
+        </div>
+
+        <div class="alert alert-danger">
+            ${errorBlockingMessage}
+        </div>
+
+        <div class="alert alert-danger">
+            ${noAvailablePhonesMessage}
+        </div>
+
+        <div class="alert alert-danger">
+            ${errorActivatingMessage}
+        </div>
+
         <h3><fmt:message key="subscribersDetailsPage.detailsAbout" bundle="${labels}"/> ${subscriber.firstName}  ${subscriber.lastName}</h3>
         <table>
             <tr>

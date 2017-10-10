@@ -28,6 +28,7 @@ public class RequestForwardingServlet extends HttpServlet {
             String path = executedCommand.execute(request, response);
             getServletContext().getRequestDispatcher(path).forward(request, response);
         } catch (SQLException e) {
+            // set some error page
             throw new IOException(e);
         }
     }

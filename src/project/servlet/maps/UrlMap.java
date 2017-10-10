@@ -5,7 +5,7 @@ public interface UrlMap {
     String SUBSCRIBER = "/subscriber?subscriberId=%d";
     String LOGIN = "/login";
     String REGISTER = "/register";
-    String PAYMNENTS = "/payments";
+    String PAYMENTS = "/payments";
     String RESOURCES = "/resources";
     String INCLUDES = "/includes";
     String SERVICES = "/services";

@@ -13,6 +13,11 @@
 <%@include file="../includes/header.jsp"%>
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
+
+        <div class="alert alert-danger">
+            ${wrongEmailPasswordMessage}
+        </div>
+
         <form action="/login" method="post">
             <fmt:message bundle="${labels}" key="loginPage.email"/>:
             <input type="email" name="userEmail" class="form-control" required/> <br/>

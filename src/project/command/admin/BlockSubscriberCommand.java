@@ -1,6 +1,9 @@
 package project.command.admin;
 
+import org.apache.log4j.Logger;
 import project.command.ActionCommand;
+import project.command.utils.ResourceBundleReader;
+import project.filters.AnonymousAccessFilter;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;
 import project.service.interfaces.SubscriberService;
@@ -10,11 +13,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
+/**
+ * This class processes admins request for blocking subscriber.
+ * */
 public class BlockSubscriberCommand implements ActionCommand {
+    private Logger logger = Logger.getLogger(BlockSubscriberCommand.class);
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        long subscriberId = Long.parseLong(request.getParameter("subscriberId"));
-        blockSubscriber(subscriberId);
+        try {
+            long subscriberId = Long.parseLong(request.getParameter("subscriberId"));
+            blockSubscriber(subscriberId);
+            String successBlockedMessage = ResourceBundleReader.getInstance().getProperty("subscribersDetailsPage.successBlocked");
+            request.setAttribute("successBlockedMessage", successBlockedMessage);
+
+            logger.info(String.format("Subscriber id#%d is blocked!", subscriberId));
+        } catch (NumberFormatException e) {
+            logger.error("Trying to parse number: " + request.getParameter("subscriberId"));
+            throw e;
+        } catch (SQLException e) {
+            String errorBlockingMessage = ResourceBundleReader.getInstance().getProperty("subscribersDetailsPage.errorBlocking");
+            request.setAttribute("errorBlockingMessage", errorBlockingMessage);
+
+            logger.error("Error while blocking subscriber: " + e);
+        }
         return UrlMap.SUBSCRIBERS;
     }
 

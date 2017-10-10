@@ -1,6 +1,9 @@
 package project.command.admin;
 
+import org.apache.log4j.Logger;
 import project.command.ActionCommand;
+import project.command.utils.ResourceBundleReader;
+import project.filters.AnonymousAccessFilter;
 import project.model.services.PaymentType;
 import project.model.services.Service;
 import project.service.interfaces.AbstractServiceFactory;
@@ -10,20 +13,21 @@ import project.servlet.maps.UrlMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class CreateServiceCommand implements ActionCommand {
+    private Logger logger = Logger.getLogger(CreateServiceCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return processPost(request);
-    }
-
-    private String processPost(HttpServletRequest request) {
         Service service = parseService(request);
         try {
             saveService(service);
-            request.setAttribute("message", "Service has been added");
+            String successCreateServiceMessage = ResourceBundleReader.getInstance().getProperty("servicesPage.successCreateService");
+            request.setAttribute("successCreateServiceMessage", successCreateServiceMessage);
         } catch (SQLException e) {
-            request.setAttribute("message", "Error while creating service. " + e);
+            logger.error("Error while creating service: " + e);
+            String errorCreateServiceMessage = ResourceBundleReader.getInstance().getProperty("createServicePage.errorCreateService");
+            request.setAttribute("errorCreateServiceMessage", errorCreateServiceMessage);
         }
 
         return UrlMap.SERVICES;

@@ -14,6 +14,11 @@
 <body>
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
+
+        <div class="alert alert-danger">
+            ${errorGettingPaymentMessage}
+        </div>
+
         <h2>
             <fmt:message key="paymentDetailsPage.paymentNo" bundle="${labels}"/> ${payment.id}
         </h2>

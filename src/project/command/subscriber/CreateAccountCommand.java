@@ -1,9 +1,11 @@
 package project.command.subscriber;
 
+import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
 import project.command.utils.ResourceBundleReader;
 import project.database.exceptions.EmailAlreadyTakenException;
+import project.filters.AnonymousAccessFilter;
 import project.model.users.Address;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;
@@ -13,13 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
+/** This class processes create account form and adds new subscriber to system. It also redirects user to confirmation page
+ *  where the generated password is shown.
+ *  It checks if email entered by user is already in system. */
 public class CreateAccountCommand implements ActionCommand {
+    private Logger logger = Logger.getLogger(CreateAccountCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        return processPost(request);
-    }
-
-    private String processPost(HttpServletRequest request) {
         Subscriber subscriber = parseSubscriber(request);
         try {
             subscriber = saveSubscriber(subscriber);
@@ -29,9 +31,12 @@ public class CreateAccountCommand implements ActionCommand {
         } catch (EmailAlreadyTakenException e) {
             String emailAlreadyInUse = ResourceBundleReader.getInstance().getProperty("createAccountPage.emailAlreadyInUse");
             request.setAttribute("emailAlreadyInUse", emailAlreadyInUse);
+            logger.info("Trying to create account with existing email: " + subscriber.getEmail());
             return JspMap.CREATE_ACCOUNT;
         } catch (SQLException e) {
-            request.setAttribute("error", "Error with database " + e);
+            String errorCreateAccountMessage = ResourceBundleReader.getInstance().getProperty("createAccountPage.errorCreateAccount");
+            request.setAttribute("errorCreateAccountMessage", errorCreateAccountMessage);
+            logger.error("Error creating account: " + e);
             return JspMap.CREATE_ACCOUNT;
         }
         return JspMap.REGISTRATION_CONFIRM;

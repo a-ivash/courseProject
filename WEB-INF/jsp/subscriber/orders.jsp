@@ -15,6 +15,18 @@
     <jsp:include page="/includes/header.jsp"/>
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
+            <!-- Error messages -->
+            <div class="alert alert-danger">
+                ${errorGettingOrdersMessage}
+            </div>
+            <div class="alert alert-danger">
+                ${errorMakingOrderMessage}
+            </div>
+
+            <div class="alert alert-success">
+                ${successMakeOrderMessage}
+            </div>
+
             <table class="table table-responsive">
                 <tr>
                     <th>ID</th>

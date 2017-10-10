@@ -17,6 +17,27 @@
 <c:set var="subscriberView" value="${not currentUser.administrator}"/>
 
 <div class="container">
+
+    <div class="alert alert-success">
+        ${successPaymentsFormMessage}
+    </div>
+
+    <div class="alert alert-success">
+        ${successConfirmPaymentMessage}
+    </div>
+
+    <div class="alert alert-danger">
+        ${errorConfirmingPaymentMessage}
+    </div>
+
+    <div class="alert alert-danger">
+        ${errorGettingPaymentsMessage}
+    </div>
+
+    <div class="alert alert-danger">
+        ${errorCreatePaymentsMessage}
+    </div>
+
     <c:if test="${adminView}">
         <div class="row">
             <div class="col-md-4 col-md-offset-1">

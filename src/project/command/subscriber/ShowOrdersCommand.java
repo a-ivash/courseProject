@@ -1,7 +1,10 @@
 package project.command.subscriber;
 
+import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
+import project.command.utils.ResourceBundleReader;
+import project.filters.AnonymousAccessFilter;
 import project.model.orders.Order;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;
@@ -13,15 +16,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ShowOrdersCommand implements ActionCommand {
+    private Logger logger = Logger.getLogger(ShowOrdersCommand.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        return processGet(request, response);
-    }
-
-    private String processGet(HttpServletRequest request, HttpServletResponse response) throws SQLException{
-        Subscriber subscriber = HttpSessionUtils.getSubscriber(request);
-        List<Order> orders = getOrdersForSubscriber(subscriber);
-        request.setAttribute("orders", orders);
+        try {
+            Subscriber subscriber = HttpSessionUtils.getSubscriber(request);
+            List<Order> orders = getOrdersForSubscriber(subscriber);
+            request.setAttribute("orders", orders);
+        } catch (SQLException e) {
+            String errorGettingOrdersMessage = ResourceBundleReader.getInstance().getProperty("subscriberOrders.errorGettingOrders");
+            request.setAttribute("errorGettingOrdersMessage", errorGettingOrdersMessage);
+            logger.error("Error while getting orders: " + e);
+        }
         return JspMap.ORDERS_SUBSCRIBER;
     }
 

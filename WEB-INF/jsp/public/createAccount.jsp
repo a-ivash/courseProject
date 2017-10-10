@@ -13,8 +13,16 @@
 
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
+        <!-- Error messages -->
+        <div class="alert alert-danger">
+            ${errorCreateAccountMessage}
+        </div>
+
+        <div class="alert alert-danger">
+            ${emailAlreadyInUse}
+        </div>
+
         <form action="/register" method="post">
-            <%--<input type="hidden" name="action" value="create_account">--%>
             <fmt:message bundle="${labels}" key="createAccountPage.firstName"/>:
             <input type="text" name="firstName" class="form-control" required/> <br/>
 
@@ -32,9 +40,6 @@
 
             <fmt:message bundle="${labels}" key="createAccountPage.apartments"/>:
             <input type="text" name="apartments" class="form-control" required/> <br/>
-
-
-            ${emailAlreadyInUse}
 
             <br>
             <button type="submit" class="btn btn-success btn-block">

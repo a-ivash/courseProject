@@ -16,6 +16,11 @@
 <%@include file="/includes/header.jsp"%>
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
+
+        <div class="alert alert-danger">
+            ${errorGettingSubscribersMessage}
+        </div>
+
         <h3><a href="/admin/subscribers2xml.jsp">Get subscribers in XML</a></h3>
         <table>
             <tr>
