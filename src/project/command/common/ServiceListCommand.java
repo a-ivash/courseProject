@@ -30,6 +30,9 @@ public class ServiceListCommand implements ActionCommand {
         return JspMap.SERVICES;
     }
 
+    /**
+     * @return List of active services
+     * */
     private List<Service> getServices() throws SQLException {
         return AbstractServiceFactory.getDefaultFactory().getServiceService().getServices();
     }

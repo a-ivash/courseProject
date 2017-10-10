@@ -55,6 +55,23 @@
         <url-pattern>/service</url-pattern>
     </servlet-mapping>
 
+
+    <servlet-mapping>
+        <servlet-name>RequestForwardingServlet</servlet-name>
+        <url-pattern>/createService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestForwardingServlet</servlet-name>
+        <url-pattern>/deactivateService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestForwardingServlet</servlet-name>
+        <url-pattern>/updateService</url-pattern>
+    </servlet-mapping>
+
+
     <servlet-mapping>
         <servlet-name>RequestForwardingServlet</servlet-name>
         <url-pattern>/orders</url-pattern>

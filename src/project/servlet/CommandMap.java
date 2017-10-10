@@ -24,6 +24,8 @@ public enum CommandMap {
     CONFIRM_PAYMENT("/confirmPayment", new ConfirmPaymentCommand()),
     CREATE_PAYMENTS("/createPayments", new CreatePaymentsCommand()),
     CREATE_SERVICE("/createService", new CreateServiceCommand()),
+    DEACTIVATE_SERVICE("/deactivateService", new DeactivateServiceCommand()),
+    UPDATE_SERVICE("/updateService", new UpdateServiceCommand()),
     ORDER_SERVICE("/orderService", new MakeOrderCommand()),
     BLOCK_USER("/blockUser", new BlockSubscriberCommand()),
     ACTIVATE_USER("/activateUser", new ActivateSubscriberCommand()),

@@ -8,6 +8,7 @@ public class Service extends AbstractEntity<Long> {
     private String serviceDescription;
     private double servicePrice;
     private PaymentType paymentType;
+    private boolean isActive = true;
 
     public Service() {
 
@@ -62,4 +63,11 @@ public class Service extends AbstractEntity<Long> {
         this.paymentType = paymentType;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }

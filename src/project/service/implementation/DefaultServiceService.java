@@ -38,4 +38,20 @@ public class DefaultServiceService implements ServiceService {
             return serviceDao.findById(serviceId);
         }
     }
+
+    @Override
+    public void deactivateService(Service service) throws SQLException {
+        service.setActive(false);
+        updateService(service);
+    }
+
+    @Override
+    public Service updateService(Service service) throws SQLException {
+        try (Connection connection = ConnectionPool.getConnection()) {
+            AbstractDAOFactory daoFactory = AbstractDAOFactory.getDefaultFactory(connection);
+            ServiceDao serviceDao = daoFactory.getServiceDao();
+            serviceDao.update(service);
+        }
+        return service;
+    }
 }

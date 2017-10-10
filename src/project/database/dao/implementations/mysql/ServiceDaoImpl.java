@@ -15,10 +15,10 @@ public class ServiceDaoImpl extends GenericDaoImpl<Long, Service> implements Ser
 
     private final String COLUMNS_TO_SELECT = "serviceId, serviceName, serviceDescription, servicePrice, paymenttype.paymentTypeName";
     private final String JOIN_PAYMENT_TYPE = "JOIN paymenttype ON paymenttype.paymentTypeId = service.paymentTypeId";
-    private final String SQL_SELECT_ALL = String.format("SELECT %s FROM service %s", COLUMNS_TO_SELECT, JOIN_PAYMENT_TYPE);
-    private final String SQL_SELECT_WILDCARD_ON_ID = SQL_SELECT_ALL + " WHERE serviceId = ?";
+    private final String SQL_SELECT_ALL = String.format("SELECT %s FROM service %s WHERE isActive = true", COLUMNS_TO_SELECT, JOIN_PAYMENT_TYPE);
+    private final String SQL_SELECT_WILDCARD_ON_ID = SQL_SELECT_ALL + " and serviceId = ?";
     private final String SQL_INSERT_WITH_WILDCARDS = "INSERT INTO service (serviceName, serviceDescription, servicePrice, paymentTypeId) VALUES (?, ?, ?, ?)";
-    private final String SQL_UPDATE_WILDCARD_ON_ID = "UPDATE service SET serviceName = ?, serviceDescription = ?, servicePrice = ? WHERE serviceId = ?";
+    private final String SQL_UPDATE_WILDCARD_ON_ID = "UPDATE service SET serviceName = ?, serviceDescription = ?, servicePrice = ?, isActive = ? WHERE serviceId = ?";
 
     private final int SERVICE_NAME_INDEX = 1;
     private final int SERVICE_DESCRIPTION_INDEX = 2;
@@ -78,7 +78,8 @@ public class ServiceDaoImpl extends GenericDaoImpl<Long, Service> implements Ser
         statement.setString(1, entity.getServiceName());
         statement.setString(2, entity.getServiceDescription());
         statement.setDouble(3, entity.getServicePrice());
-        statement.setLong(4, entity.getId());
+        statement.setBoolean(4, entity.isActive());
+        statement.setLong(5, entity.getId());
     }
 
     @Override

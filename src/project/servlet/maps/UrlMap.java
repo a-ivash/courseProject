@@ -9,6 +9,7 @@ public interface UrlMap {
     String RESOURCES = "/resources";
     String INCLUDES = "/includes";
     String SERVICES = "/services";
+    String SERVICE = "/service?serviceId=%d";
     String ORDERS = "/orders";
     String CHANGE_LANGUAGE = "/changeLanguage";
 }

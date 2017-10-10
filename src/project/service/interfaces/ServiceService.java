@@ -9,4 +9,6 @@ public interface ServiceService {
     Service saveService(Service service) throws SQLException;
     List<Service> getServices() throws SQLException;
     Service getService(long serviceId) throws SQLException;
+    void deactivateService(Service service) throws SQLException;
+    Service updateService(Service service) throws SQLException;
 }
