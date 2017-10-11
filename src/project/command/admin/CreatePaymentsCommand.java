@@ -3,7 +3,6 @@ package project.command.admin;
 import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.service.interfaces.AbstractServiceFactory;
 import project.service.interfaces.CreatePaymentsService;
 import project.servlet.maps.UrlMap;
@@ -19,7 +18,7 @@ public class CreatePaymentsCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(CreatePaymentsCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             formPaymentsForLastMonth();
             String successPaymentsFormMessage = ResourceBundleReader.getInstance().getProperty("paymentsPage.successPaymentsForm");

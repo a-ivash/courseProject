@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.model.orders.Payment;
 import project.model.users.AbstractUser;
 import project.model.users.Subscriber;
@@ -21,7 +20,7 @@ public class PaymentListCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(PaymentListCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             AbstractUser abstractUser = HttpSessionUtils.getAbstractUser(request);
             if (abstractUser.isAdministrator()) {

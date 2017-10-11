@@ -15,6 +15,11 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Contains default implementation of {@link OrdersService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultOrdersService implements OrdersService {
     @Override
     public List<Order> getOrdersForSubscriber(Subscriber subscriber) throws SQLException {

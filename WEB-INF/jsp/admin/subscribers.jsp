@@ -17,9 +17,11 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
 
+        <c:if test="${errorGettingSubscribersMessage}">
         <div class="alert alert-danger">
             ${errorGettingSubscribersMessage}
         </div>
+        </c:if>
 
         <h3><a href="/admin/subscribers2xml.jsp">Get subscribers in XML</a></h3>
         <table>
@@ -37,7 +39,8 @@
                 <th></th>
             </tr>
             <c:forEach var="subscriber" items="${subscribers}">
-                <tr <c:if test="${not subscriber.active}">class="info"</c:if> >
+                <c:set var="classVar" value="${subscriber.active ? 'success' : (subscriber.blocked ? 'danger' : 'info')}"/>
+                <tr class="${classVar}">
                     <td>${subscriber.id}</td>
                     <td>${subscriber.firstName}</td>
                     <td>${subscriber.lastName}</td>

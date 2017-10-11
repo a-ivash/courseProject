@@ -6,7 +6,6 @@ import project.command.utils.ResourceBundleReader;
 import project.model.services.Service;
 import project.service.interfaces.AbstractServiceFactory;
 import project.service.interfaces.ServiceService;
-import project.servlet.maps.JspMap;
 import project.servlet.maps.UrlMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +17,7 @@ public class DeactivateServiceCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(DeactivateServiceCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         long serviceId = 0;
         try {
             serviceId = Long.valueOf(request.getParameter("serviceId"));

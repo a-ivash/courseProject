@@ -15,6 +15,8 @@
         <servlet-class>project.servlet.RequestForwardingServlet</servlet-class>
     </servlet>
 
+    <!-- Servlet mappings -->
+    <!--****************************************************************-->
     <servlet-mapping>
         <servlet-name>RequestForwardingServlet</servlet-name>
         <url-pattern>/controller</url-pattern>
@@ -116,10 +118,13 @@
         <servlet-name>RequestForwardingServlet</servlet-name>
         <url-pattern>/changeLanguage</url-pattern>
     </servlet-mapping>
+    <!--****************************************************************-->
+
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
 
     <jsp-config>
         <taglib>
@@ -129,8 +134,8 @@
     </jsp-config>
 
 
-    <!-- parameter list  admin credentials -->
-
+    <!-- Filters -->
+    <!--****************************************************************-->
     <filter>
         <filter-name>AdminAccessFilter</filter-name>
         <filter-class>project.filters.AdminAccessFilter</filter-class>
@@ -146,8 +151,15 @@
         <filter-class>project.filters.InactiveUserFilter</filter-class>
     </filter>
 
+    <filter>
+        <filter-name>PaymentFormDateFilter</filter-name>
+        <filter-class>project.filters.PaymentFormDateFilter</filter-class>
+    </filter>
+    <!--****************************************************************-->
 
 
+    <!-- Filter mappings-->
+    <!--****************************************************************-->
     <filter-mapping>
         <filter-name>AnonymousAccessFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -194,6 +206,12 @@
         <filter-name>AdminAccessFilter</filter-name>
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>PaymentFormDateFilter</filter-name>
+        <url-pattern>/createPayments</url-pattern>
+    </filter-mapping>
+    <!--****************************************************************-->
 
     <resource-ref>
         <description>MySQL DB Connection pool</description>

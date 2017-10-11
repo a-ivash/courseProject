@@ -2,6 +2,10 @@ package project.model.services;
 
 import project.model.AbstractEntity;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class Service extends AbstractEntity<Long> {
     private long serviceId;
     private String serviceName;

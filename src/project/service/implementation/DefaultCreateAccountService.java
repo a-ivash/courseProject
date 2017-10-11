@@ -12,6 +12,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * Contains default implementation of {@link CreateAccountService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultCreateAccountService implements CreateAccountService {
     @Override
     public Subscriber saveSubscriber(Subscriber subscriber) throws SQLException, EmailAlreadyTakenException {

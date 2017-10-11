@@ -4,6 +4,14 @@ import project.model.orders.Payment;
 
 import java.util.Comparator;
 
+/**
+ * Order for comparing payments:
+ * 1. First goes unconfirmed payments
+ * 2. If their confirm statuses are equal - compare by order dates
+ * 3. If their order dates are equal - compare by payment dates
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class PaymentComparator implements Comparator<Payment> {
     @Override
     public int compare(Payment o1, Payment o2) {

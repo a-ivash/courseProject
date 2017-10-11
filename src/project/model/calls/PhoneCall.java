@@ -6,6 +6,10 @@ import project.model.users.Phone;
 
 import java.util.Date;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public abstract class PhoneCall extends AbstractEntity<Long> {
     private Long id;
     private Phone phone;

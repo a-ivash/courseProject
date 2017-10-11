@@ -1,5 +1,10 @@
 package project.servlet.maps;
 
+/**
+ * This interface simply contains constants with paths to JSP pages.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ */
 public interface JspMap {
     String LOGIN = "/public/login.jsp";
     String INDEX = "/index.jsp";

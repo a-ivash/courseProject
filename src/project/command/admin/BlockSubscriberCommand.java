@@ -3,7 +3,6 @@ package project.command.admin;
 import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;
 import project.service.interfaces.SubscriberService;
@@ -20,9 +19,10 @@ public class BlockSubscriberCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(BlockSubscriberCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        long subscriberId = 0;
         try {
-            long subscriberId = Long.parseLong(request.getParameter("subscriberId"));
+            subscriberId = Long.parseLong(request.getParameter("subscriberId"));
             blockSubscriber(subscriberId);
             String successBlockedMessage = ResourceBundleReader.getInstance().getProperty("subscribersDetailsPage.successBlocked");
             request.setAttribute("successBlockedMessage", successBlockedMessage);
@@ -37,7 +37,7 @@ public class BlockSubscriberCommand implements ActionCommand {
 
             logger.error("Error while blocking subscriber: " + e);
         }
-        return UrlMap.SUBSCRIBERS;
+        return String.format(UrlMap.SUBSCRIBER, subscriberId);
     }
 
     private void blockSubscriber(long subscriberId) throws SQLException{

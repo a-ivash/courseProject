@@ -14,13 +14,19 @@
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
         <!-- Error messages -->
-        <div class="alert alert-danger">
-            ${errorCreateAccountMessage}
-        </div>
+        <c:if test="${not empty errorCreateAccountMessage}">
+            <div class="alert alert-danger">
+                    ${errorCreateAccountMessage}
+            </div>
+        </c:if>
 
-        <div class="alert alert-danger">
-            ${emailAlreadyInUse}
-        </div>
+
+        <c:if test="${not empty emailAlreadyInUse}">
+            <div class="alert alert-danger">
+                    ${emailAlreadyInUse}
+            </div>
+        </c:if>
+
 
         <form action="/register" method="post">
             <fmt:message bundle="${labels}" key="createAccountPage.firstName"/>:

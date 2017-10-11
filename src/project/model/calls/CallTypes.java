@@ -2,6 +2,10 @@ package project.model.calls;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public enum CallTypes {
     local {
         @Override

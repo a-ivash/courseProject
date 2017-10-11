@@ -16,7 +16,7 @@ public class UpdateServiceCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(UpdateServiceCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         long serviceId = 0;
         try {
             serviceId = Long.valueOf(request.getParameter("serviceId"));

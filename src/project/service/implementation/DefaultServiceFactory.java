@@ -2,6 +2,12 @@ package project.service.implementation;
 
 import project.service.interfaces.*;
 
+/**
+ * This class implements {@link AbstractServiceFactory} and it's methods return
+ * new instances of Service implementations.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultServiceFactory implements AbstractServiceFactory {
     @Override
     public LoginService getLoginService() {

@@ -5,7 +5,6 @@ import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
 import project.command.utils.ResourceBundleReader;
 import project.database.exceptions.WrongEmailPasswordException;
-import project.filters.AnonymousAccessFilter;
 import project.model.users.AbstractUser;
 import project.service.interfaces.AbstractServiceFactory;
 import project.service.interfaces.LoginService;

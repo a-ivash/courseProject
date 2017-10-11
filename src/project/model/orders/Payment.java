@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class Payment extends AbstractEntity<Long> {
     private long paymentId;
     private Subscriber subscriber;

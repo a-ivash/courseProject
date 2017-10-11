@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ * This class filters whether it's allowed time for forming payments.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ */
 public class PaymentFormDateFilter implements Filter{
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

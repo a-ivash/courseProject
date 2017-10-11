@@ -18,25 +18,36 @@
 
 <div class="container">
 
-    <div class="alert alert-success">
-        ${successPaymentsFormMessage}
-    </div>
+    <c:if test="${not empty successPaymentsFormMessage}">
+        <div class="alert alert-success">
+            ${successPaymentsFormMessage}
+        </div>
+    </c:if>
 
-    <div class="alert alert-success">
-        ${successConfirmPaymentMessage}
-    </div>
+    <c:if test="${not empty successConfirmPaymentMessage}">
+        <div class="alert alert-success">
+                ${successConfirmPaymentMessage}
+        </div>
+    </c:if>
 
-    <div class="alert alert-danger">
-        ${errorConfirmingPaymentMessage}
-    </div>
+    <c:if test="${not empty errorConfirmingPaymentMessage}">
+        <div class="alert alert-danger">
+                ${errorConfirmingPaymentMessage}
+        </div>
+    </c:if>
 
-    <div class="alert alert-danger">
-        ${errorGettingPaymentsMessage}
-    </div>
 
+    <c:if test="${not empty errorGettingPaymentsMessage}">
+        <div class="alert alert-danger">
+                ${errorGettingPaymentsMessage}
+        </div>
+    </c:if>
+
+    <c:if test="${not empty errorCreatePaymentsMessage}">
     <div class="alert alert-danger">
         ${errorCreatePaymentsMessage}
     </div>
+    </c:if>
 
     <c:if test="${adminView}">
         <div class="row">

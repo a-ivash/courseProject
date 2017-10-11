@@ -2,6 +2,10 @@ package project.model.calls.decorators;
 
 import project.model.calls.PhoneCall;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class NightCall extends CallDecorator {
 
     public NightCall(PhoneCall phoneCall) {

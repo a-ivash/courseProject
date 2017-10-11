@@ -6,6 +6,10 @@ import project.model.users.Subscriber;
 
 import java.util.Date;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class Order extends AbstractEntity<Long> {
     private long orderId;
     private Subscriber subscriber;

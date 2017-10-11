@@ -15,7 +15,7 @@
 <c:set var="isCreateServiceButton" value="${ service == null }"/>
 
 
-
+<%@include file="/includes/header.jsp"%>
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
         <h1><fmt:message key="createServicePage.title" bundle="${labels}"/></h1>

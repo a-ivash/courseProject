@@ -13,6 +13,11 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Contains default implementation of {@link PaymentService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultPaymentService implements PaymentService {
     @Override
     public List<Payment> getSubscribersPayments(Subscriber subscriber) throws SQLException {

@@ -5,7 +5,6 @@ import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
 import project.command.utils.ResourceBundleReader;
 import project.database.exceptions.EmailAlreadyTakenException;
-import project.filters.AnonymousAccessFilter;
 import project.model.users.Address;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;

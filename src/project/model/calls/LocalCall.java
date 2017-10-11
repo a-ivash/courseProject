@@ -1,5 +1,9 @@
 package project.model.calls;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class LocalCall extends PhoneCall {
 
     public LocalCall() {

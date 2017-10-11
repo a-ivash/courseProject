@@ -2,6 +2,10 @@ package project.model.users;
 
 import java.util.Date;
 
+/**
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class Subscriber extends AbstractUser {
     private long id;
     private String email;

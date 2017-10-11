@@ -14,6 +14,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+/**
+ * Contains default implementation of {@link LoginService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultLoginService implements LoginService {
 
     @Override

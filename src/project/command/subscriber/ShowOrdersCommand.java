@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.model.orders.Order;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;
@@ -18,7 +17,7 @@ import java.util.List;
 public class ShowOrdersCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(ShowOrdersCommand.class);
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             Subscriber subscriber = HttpSessionUtils.getSubscriber(request);
             List<Order> orders = getOrdersForSubscriber(subscriber);

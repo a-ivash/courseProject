@@ -14,9 +14,12 @@
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
 
-        <div class="alert alert-danger">
-            ${wrongEmailPasswordMessage}
-        </div>
+        <c:if test="${not empty wrongEmailPasswordMessage}">
+            <div class="alert alert-danger">
+                    ${wrongEmailPasswordMessage}
+            </div>
+        </c:if>
+
 
         <form action="/login" method="post">
             <fmt:message bundle="${labels}" key="loginPage.email"/>:
@@ -24,8 +27,6 @@
 
             <fmt:message bundle="${labels}" key="loginPage.password"/>:
             <input type="password" name="userPassword" class="form-control" required/> <br/>
-
-            ${wrongEmailPasswordMessage}
 
             <button type="submit" class="btn btn-info btn-block">
                 <fmt:message bundle="${labels}" key="loginPage.loginButton"/>

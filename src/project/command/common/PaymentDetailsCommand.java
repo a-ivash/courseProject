@@ -3,7 +3,6 @@ package project.command.common;
 import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.model.orders.Payment;
 import project.service.interfaces.AbstractServiceFactory;
 import project.servlet.maps.JspMap;
@@ -19,7 +18,7 @@ public class PaymentDetailsCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(PaymentDetailsCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             long paymentId = Long.valueOf(request.getParameter("paymentId"));
             Payment payment = getPayment(paymentId);

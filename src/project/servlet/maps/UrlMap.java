@@ -1,7 +1,13 @@
 package project.servlet.maps;
 
+/**
+ * This interface simply contains constants with urls to specified resources.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ */
 public interface UrlMap {
     String SUBSCRIBERS = "/subscribers";
+    String SUBSCRIBER_RAW = "/subscriber";
     String SUBSCRIBER = "/subscriber?subscriberId=%d";
     String LOGIN = "/login";
     String REGISTER = "/register";

@@ -22,13 +22,18 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
 
-        <div class="alert alert-success">
-            ${successCreateServiceMessage}
-        </div>
+        <c:if test="${not empty successCreateServiceMessage}">
+            <div class="alert alert-success">
+                    ${successCreateServiceMessage}
+            </div>
+        </c:if>
 
-        <div class="alert alert-danger">
-            ${errorCreateServiceMessage}
-        </div>
+        <c:if test="${not empty errorCreateServiceMessage}">
+            <div class="alert alert-danger">
+                    ${errorCreateServiceMessage}
+            </div>
+        </c:if>
+
 
         <table class="table table-responsive">
             <tr>

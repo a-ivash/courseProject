@@ -11,12 +11,17 @@
     <div class="col-md-6 col-md-offset-3">
         <h1><fmt:message key="subscriberDashboard.welcome" bundle="${labels}"/>, ${currentUser.firstName} ${currentUser.lastName}</h1>
 
-        <h1>
-            ${BLOCKED_USER_MESSAGE}
-        </h1>
-        <h1>
-            ${INACTIVE_USER_MESSAGE}
-        </h1>
+        <c:if test="${not empty BLOCKED_USER_MESSAGE}">
+            <div class="alert alert-danger">
+                    ${BLOCKED_USER_MESSAGE}
+            </div>
+        </c:if>
+        <c:if test="${not empty INACTIVE_USER_MESSAGE}">
+            <div class="alert alert-danger">
+                    ${INACTIVE_USER_MESSAGE}
+            </div>
+        </c:if>
+
         <div class="list-group">
             <a href="/services" class="list-group-item">
                 <h4 class="list-group-item-heading">

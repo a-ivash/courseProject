@@ -3,7 +3,6 @@ package project.command.common;
 import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.model.services.Service;
 import project.service.interfaces.AbstractServiceFactory;
 import project.servlet.maps.JspMap;

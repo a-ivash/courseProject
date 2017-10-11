@@ -10,6 +10,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Contains default implementation of {@link ServiceService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultServiceService implements ServiceService {
     @Override
     public Service saveService(Service service) throws SQLException{

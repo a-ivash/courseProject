@@ -15,9 +15,18 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This class is an implementation of {@link TagSupport}. It returns xml-document
+ * with list of {@link Subscriber} instances.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ */
 public class Subscriber2XMLTag extends TagSupport {
     List<Subscriber> subscribers;
 
+    /**
+     * Getting list of Subscriber from database
+     * */
     public void initSubscribers(){
         AbstractServiceFactory serviceFactory = AbstractServiceFactory.getDefaultFactory();
         SubscriberService subscriberService = serviceFactory.getSubscriberService();

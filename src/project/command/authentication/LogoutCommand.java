@@ -3,7 +3,6 @@ package project.command.authentication;
 import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
-import project.filters.AnonymousAccessFilter;
 import project.servlet.maps.JspMap;
 
 import javax.servlet.http.HttpServletRequest;

@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.ResourceBundleReader;
 import project.database.exceptions.NoAvailablePhonesException;
-import project.filters.AnonymousAccessFilter;
 import project.model.users.Subscriber;
 import project.service.interfaces.AbstractServiceFactory;
 import project.service.interfaces.SubscriberService;
@@ -22,7 +21,7 @@ public class ActivateSubscriberCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(ActivateSubscriberCommand.class);
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         long subscriberId = Long.valueOf(request.getParameter("subscriberId"));
         try {
             Subscriber subscriber = activateSubscriber(subscriberId);

@@ -12,6 +12,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
 
+/**
+ * Contains default implementation of {@link CreatePaymentsService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultCreatePaymentsService implements CreatePaymentsService {
     @Override
     public void formServicesForLastMonth() throws SQLException {

@@ -12,12 +12,15 @@
     <c:set var="subscriberView" value="${not currentUser.administrator}"/>
 </head>
 <body>
+<%@include file="/includes/header.jsp"%>
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
 
-        <div class="alert alert-danger">
-            ${errorGettingPaymentMessage}
-        </div>
+        <c:if test="${errorGettingPaymentMessage}">
+            <div class="alert alert-danger">
+                    ${errorGettingPaymentMessage}
+            </div>
+        </c:if>
 
         <h2>
             <fmt:message key="paymentDetailsPage.paymentNo" bundle="${labels}"/> ${payment.id}

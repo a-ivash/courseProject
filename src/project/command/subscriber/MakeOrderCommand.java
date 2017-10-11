@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import project.command.ActionCommand;
 import project.command.utils.HttpSessionUtils;
 import project.command.utils.ResourceBundleReader;
-import project.filters.AnonymousAccessFilter;
 import project.service.interfaces.AbstractServiceFactory;
 import project.servlet.maps.UrlMap;
 
@@ -15,7 +14,7 @@ import java.sql.SQLException;
 public class MakeOrderCommand implements ActionCommand {
     private Logger logger = Logger.getLogger(MakeOrderCommand.class);
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
         try {
             long serviceId = Long.parseLong(request.getParameter("serviceId"));
             long subscriberId = HttpSessionUtils.getSubscriber(request).getId();

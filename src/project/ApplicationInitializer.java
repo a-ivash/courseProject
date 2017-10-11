@@ -13,6 +13,8 @@ import java.io.File;
  * This class implements {@link ServletContextListener} and runs on servlet deploying.
  * This class helps to initialize log4j library from log4j.properties file.
  * It also instantiates external system for generating phone calls.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
  * */
 public class ApplicationInitializer implements ServletContextListener {
 

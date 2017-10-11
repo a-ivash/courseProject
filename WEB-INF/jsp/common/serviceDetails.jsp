@@ -14,7 +14,7 @@
 
 <c:set var="adminView" value="${currentUser.administrator}"/>
 <c:set var="subscriberView" value="${not currentUser.administrator}"/>
-
+<%@include file="/includes/header.jsp"%>
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
         <h3> <fmt:message key="serviceDetailsPage.serviceName" bundle="${labels}"/>: ${service.serviceName}</h3>

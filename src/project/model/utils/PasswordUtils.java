@@ -2,6 +2,11 @@ package project.model.utils;
 
 import java.util.Random;
 
+/**
+ * This class contains methods for generating passwords and their checking.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class PasswordUtils {
     private static final String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final int size = chars.length();

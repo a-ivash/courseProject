@@ -12,6 +12,11 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Contains default implementation of {@link DefaultSubscriberService}.
+ * @author Oleksii Ivashchenko
+ * @version 1.0
+ * */
 public class DefaultSubscriberService implements SubscriberService {
     @Override
     public Subscriber activateSubscriber(long subscriberId) throws SQLException {
