@@ -43,7 +43,9 @@ public class Subscriber2XMLTag extends TagSupport {
     private void writeSubscribers(JspWriter writer) throws IOException{
         writer.write("<subscribers>");
         for (Subscriber subscriber: subscribers) {
+            writer.write("<subscriber>");
             writeSubscriber(writer, subscriber);
+            writer.write("</subscriber>");
         }
         writer.write("</subscribers>");
     }

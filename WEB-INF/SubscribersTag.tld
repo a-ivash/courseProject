@@ -6,7 +6,7 @@
         version="2.0">
     <tlib-version>2.1</tlib-version>
     <short-name>Subscriber2XML</short-name>
-    <uri>Subscribers2xml</uri>
+    <!--<uri>Subscribers2xml</uri>-->
     <tag>
         <name>Subscriber2XML</name>
         <tag-class>project.tags.Subscriber2XMLTag</tag-class>

@@ -12,6 +12,8 @@
 <body>
 
 <c:set var="postAction" value="${ service == null ? '/createService' : '/updateService'}"/>
+<c:set var="isCreateServiceButton" value="${ service == null }"/>
+
 
 
 <div class="container">
@@ -43,9 +45,18 @@
             <fmt:message key="createServicePage.serviceCost" bundle="${labels}"/>: <br/>
             <input type="text" name="servicePrice" class="form-control" value="${service.servicePrice}"> <br/>
 
-            <button type="submit" class="btn btn-info btn-block">
-                <fmt:message key="createServicePage.createServiceButton" bundle="${labels}"/>
-            </button>
+            <c:if test="${isCreateServiceButton}">
+                <button type="submit" class="btn btn-info btn-block">
+                    <fmt:message key="createServicePage.createServiceButton" bundle="${labels}"/>
+                </button>
+            </c:if>
+
+            <c:if test="${not isCreateServiceButton}">
+                <button type="submit" class="btn btn-info btn-block">
+                    <fmt:message key="createServicePage.updateServiceButton" bundle="${labels}"/>
+                </button>
+            </c:if>
+
         </form>
     </div>
 </div>

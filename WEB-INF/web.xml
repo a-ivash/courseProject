@@ -123,7 +123,7 @@
 
     <jsp-config>
         <taglib>
-            <taglib-uri>Subscriber2XML</taglib-uri>
+            <taglib-uri>Subscribers2XML</taglib-uri>
             <taglib-location>/WEB-INF/SubscribersTag.tld</taglib-location>
         </taglib>
     </jsp-config>
