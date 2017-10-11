@@ -1,10 +1,15 @@
 package project.model.calls;
 
+import project.command.utils.ResourceBundleReader;
+
+import java.util.ResourceBundle;
+
 /**
  * @author Oleksii Ivashchenko
  * @version 1.0
  * */
 public class LocalCall extends PhoneCall {
+    double pricePerMinute = Double.valueOf(ResourceBundle.getBundle("phones").getString("localCallCost"));
 
     public LocalCall() {
         setCallType(CallTypes.local);
@@ -12,6 +17,6 @@ public class LocalCall extends PhoneCall {
 
     @Override
     public double calculateCost() {
-        return getDurationInMinutes() * 1.5; // cost of 1 minute
+        return getDurationInMinutes() * pricePerMinute;
     }
 }

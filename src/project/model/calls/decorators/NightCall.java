@@ -2,11 +2,14 @@ package project.model.calls.decorators;
 
 import project.model.calls.PhoneCall;
 
+import java.util.ResourceBundle;
+
 /**
  * @author Oleksii Ivashchenko
  * @version 1.0
  * */
 public class NightCall extends CallDecorator {
+    double callRatio = Double.valueOf(ResourceBundle.getBundle("phones").getString("nightCallRatio"));
 
     public NightCall(PhoneCall phoneCall) {
         super(phoneCall);
@@ -14,6 +17,6 @@ public class NightCall extends CallDecorator {
 
     @Override
     public double calculateCost() {
-        return 0.5 * phoneCall.getCost();
+        return callRatio * phoneCall.getCost();
     }
 }

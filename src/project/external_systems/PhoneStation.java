@@ -2,11 +2,11 @@ package project.external_systems;
 
 import project.model.calls.CallTypes;
 import project.model.calls.PhoneCall;
+import project.model.calls.decorators.NightCall;
+import project.model.calls.decorators.WeekendCall;
 import project.model.users.Phone;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class PhoneStation implements PhoneStationObservable, Runnable {
     PhoneSystemObserver observer;
@@ -48,7 +48,20 @@ public class PhoneStation implements PhoneStationObservable, Runnable {
         return phoneCall;
     }
 
+    /**
+     * Detecting phone call type based on it's call datetime
+     * */
     private PhoneCall detectCallType(PhoneCall phoneCall) {
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(phoneCall.getCallDate());
+        if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+            phoneCall = new WeekendCall(phoneCall);
+        }
+
+        if (calendar.get(Calendar.HOUR_OF_DAY) >= 22 || calendar.get(Calendar.HOUR_OF_DAY) < 6) {
+            phoneCall = new NightCall(phoneCall);
+        }
+
         return phoneCall;
     }
 }
